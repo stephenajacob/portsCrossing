@@ -1,0 +1,7 @@
+[0m[[31merror[0m] [0m/Users/stephenjacob/workspace/portsCrossing3/app/controllers/OAuth2Controller.scala:63: not found: value BSONDocument[0m
+[0m[[31merror[0m] [0m          userRepo.save(BSONDocument([0m
+[0m[[31merror[0m] [0m                        ^[0m
+[0m[[31merror[0m] [0m/Users/stephenjacob/workspace/portsCrossing3/app/controllers/OAuth2Controller.scala:82: not found: value BSONDocument[0m
+[0m[[31merror[0m] [0m          userRepo.save(BSONDocument([0m
+[0m[[31merror[0m] [0m                        ^[0m
+[0m[[31merror[0m] [0mtwo errors found[0m

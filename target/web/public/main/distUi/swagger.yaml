@@ -1,0 +1,125 @@
+swagger: '2.0'
+info:
+  version: beta
+  title: ''
+  contact:
+    name: ''
+  license:
+    name: ''
+    url: 'http://licenseUrl'
+host: 'localhost:9000'
+basePath: /
+tags:
+  - name: apiports
+paths:
+  /api/port:
+    post:
+      tags:
+        - apiports
+      summary: Insert a Port
+      description: Add a new Port into MongoDB
+      operationId: add
+      parameters: 
+        - name: portName
+          in: formData
+          required: true
+          type: string
+        - name: latitude
+          in: formData
+          required: true
+          type: string
+        - name: longitude
+          in: formData
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionJsValue'
+  /api/ports:
+    get:
+      tags:
+        - apiports
+      summary: Get All Ports
+      description: Returns a List of all Ports in MongoDB
+      operationId: list
+      parameters: []
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionAnyContent'
+  '/api/ports/1/{portName}':
+    get:
+      tags:
+        - apiports
+      summary: Get One Port by Port Name
+      description: Returns first Port from the List of Ports by Port Name
+      operationId: findOneByName
+      parameters:
+        - name: portName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionAnyContent'
+  '/api/ports/id/{id}':
+    get:
+      tags:
+        - apiports
+      summary: Get Ports by Port ID
+      description: Returns a List of all Ports by a Single Port ID
+      operationId: findById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionAnyContent'
+  '/api/ports/remove/{id}':
+    delete:
+      tags:
+        - apiports
+      summary: Delete a Port
+      description: Remove a Port from MongoDB
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionAnyContent'
+  '/api/ports/{portName}':
+    get:
+      tags:
+        - apiports
+      summary: Get All Ports by Port Name
+      description: Returns a List of all Ports by a single Port Name
+      operationId: findByName
+      parameters:
+        - name: portName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ActionAnyContent'
+definitions:
+  ActionAnyContent:
+    type: object
+  ActionJsValue:
+    type: object
