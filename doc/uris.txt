@@ -1,0 +1,24 @@
+swagger
+
+swagger - explore
+http://localhost:9000/api-docs.json
+
+http://localhost:9000/dist/index.html - petstore
+
+http://localhost:9000/api-docs/api/ports
+
+
+{
+  	"portName": "JonnsBay",
+  	"latitude": "57.5",
+  	"longitude": "-3.4"
+}
+
+{
+  	"portName": "Johnsons",
+  	"latitude": "57.5",
+  	"longitude": "-3.4"
+}
+
+
+http://localhost:9000/distUi/index.html

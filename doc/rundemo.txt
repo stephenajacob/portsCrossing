@@ -1,0 +1,5 @@
+
+
+
+
+GITHUB_AUTH_ID=fd84b58f9ff49c106a1e GITHUB_AUTH_SECRET=d9e3e7dcbe19dfd17bb001713be16630c4a63ff3 activator ui

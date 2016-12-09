@@ -1,0 +1,48 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+# GET     /                           controllers.Assets.at(path="/public", file="app/index.html")
+
+GET 	  /							  controllers.ApplicationController.index
+
+GET     /api-docs.json              controllers.ApiHelpController.getResources
+GET     /api-docs/api/ports         controllers.ApiHelpController.getResource(path = "/api/ports")
+
+GET     /api/posts                  controllers.Posts.list
+PATCH   /api/post/:id/like          controllers.Posts.like(id: String)
+PATCH   /api/post/:id               controllers.Posts.update(id: String)
+POST    /api/post                   controllers.Posts.add
+DELETE  /api/post/:id               controllers.Posts.delete(id: String)
+
+GET     /api/ports                  controllers.Ports.list
+GET     /api/ports/:portName        controllers.Ports.findByName(portName: String)
+GET     /api/ports/1/:portName      controllers.Ports.findOneByName(portName: String)
+GET     /api/ports/id/:id           controllers.Ports.findById(id: String)
+POST	/api/port					controllers.Ports.add
+POST    /api/port/oauth             controllers.Ports.addAuthenticated
+DELETE  /api/ports/remove/:id		controllers.Ports.delete(id: String)
+
+
+GET     /api/songs                  controllers.Songs.list
+GET     /api/playlists              controllers.Playlists.list
+GET     /api/images                 controllers.Images.list
+GET     /api/images/id/:id          controllers.Images.findById(id: String)
+
+POST    /users/register	            controllers.UserController.register
+
+POST 	/api/file					controllers.FileController.sayHello
+
+GET        /_oauth-callback       	controllers.OAuth2Controller.callback(code: Option[String], state: Option[String])
+GET        /_oauth-success        	controllers.OAuth2Controller.success
+GET		   /_oauth-getInfo			controllers.OAuth2Controller.getUserInfo()
+GET        /api/hello        		controllers.OAuth2Controller.hello
+
+GET     /*file                      controllers.Assets.at(path="/public", file)
+
+
+
+
+

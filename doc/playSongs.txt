@@ -1,0 +1,60 @@
+
+Songs and Playlist collections
+> db.songs.find()
+{ "_id" : ObjectId("57e50feedd70e6c618789768"), "title" : "Heart & Soul", "duration" : 157, "writer" : "John Blake" }
+{ "_id" : ObjectId("57e510cedd70e6c618789769"), "title" : "Go for Broke", "duration" : 164, "writer" : "Isabel Ruffington" }
+{ "_id" : ObjectId("57e51101dd70e6c61878976a"), "title" : "Charge!", "duration" : 166, "writer" : "Carlos Munos" }
+{ "_id" : ObjectId("57e51188dd70e6c61878976b"), "title" : "Bloom", "duration" : 152, "writer" : "Alicia Denvers" }
+{ "_id" : ObjectId("57e54427dd70e6c61878976d"), "title" : "You and I", "duration" : 157, "writer" : "Gabriella Gutierrez" }
+{ "_id" : ObjectId("57e545c6dd70e6c61878976e"), "title" : "Connect", "duration" : 154, "writer" : "Phil Collins" }
+{ "_id" : ObjectId("57e545d6dd70e6c61878976f"), "title" : "Change the World", "duration" : 149, "writer" : "Kevin Williams" }
+{ "_id" : ObjectId("57e545e3dd70e6c618789770"), "title" : "Once in a Lifetime", "duration" : 160, "writer" : "Garrett Brisby" }
+{ "_id" : ObjectId("57e54602dd70e6c618789771"), "title" : "Holier than Thou", "duration" : 152, "writer" : "Jayden Haijou" }
+
+// insert song data, 
+copy the ObjectId identifier into the array of songs as a field for the playlist document
+id references can also be used:
+    > songid_1 = ObjectId()
+    ObjectId("57e918337c253cc638d923ca")
+    
+    > songid_2 = ObjectId()
+    ObjectId("57e9184d7c253cc638d923cb")
+    
+// insert playlist data, in the songs field, one can insert as many song ids as they wish
+insert a playlist with two existing songs
+> db.playlists.insert(
+            {"title" : "Energy", "label" : "RockRecords", "songs" : [
+                {"song1" : ObjectId("57e545e3dd70e6c618789770"), 
+                    "song2" : ObjectId("57e54602dd70e6c618789771")
+                }
+            ]
+        }
+    )
+WriteResult({ "nInserted" : 1 })
+
+> db.playlists.insert(
+            {"title" : "Your Companion", "label" : "1-Way", "songs" : [
+                {"song1" : songid_1, 
+                    "song2" : songid_2
+                }
+            ]
+        }
+    )
+WriteResult({ "nInserted" : 1 })
+
+
+// insert a playlist with three existing songs
+> db.playlists.insert(
+            {"title" : "Change The World", "label" : "RockRecords", "songs" : [
+                {"song1" : ObjectId("57e510cedd70e6c618789769"), 
+                    "song2" : ObjectId("57e545c6dd70e6c61878976e"), 
+                    "songid_3" : ObjectId("57e51188dd70e6c61878976b")
+                }
+            ]
+        }
+    )
+WriteResult({ "nInserted" : 1 })
+
+
+ObjectId for a song in the field songs can be the same as an identifier for an "_id" field for a song
+
