@@ -23,6 +23,7 @@ object OAuth2 {
     baseUrl.format(githubAuthId, redirectUri, scope, state)
 }
   
+  //https://github.com/login/oauth/access_token
   def getToken(code: String): Future[String] = {
     val tokenResponse = WS.url("https://github.com/login/oauth/access_token")(application).
       withQueryString("client_id" -> githubAuthId,
